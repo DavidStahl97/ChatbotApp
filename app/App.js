@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import Config from 'react-native-config';
+import uuid from 'react-native-uuid';
 
 export default class MyApp extends Component {
   constructor() {
@@ -15,7 +16,7 @@ export default class MyApp extends Component {
     this.setState({
       messages: [
         {
-          _id: 1,
+          _id: uuid.v1(),
           text: 'Hello developer',
           createdAt: new Date(),
           user: {
@@ -56,13 +57,11 @@ export default class MyApp extends Component {
 
         this.setState(previousState => ({
           messages: GiftedChat.append(previousState.messages, {
-            _id: previousState.length + 1,
+            _id: uuid.v1(),
             text: data.answers[0].answer,
             createdAt: new Date(),
             user: {
               _id: 2,
-              name: 'React Native',
-              avatar: 'https://placeimg.com/140/140/any',
             },
           }),
         }));
