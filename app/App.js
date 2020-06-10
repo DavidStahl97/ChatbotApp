@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
+import Config from 'react-native-config';
 
 export default class MyApp extends Component {
   constructor() {
@@ -13,6 +14,8 @@ export default class MyApp extends Component {
   onPressButton() {
     const newNumber = this.state.number + 1;
     this.setState({number: newNumber});
+
+    const key = Config.API_KEY;
   }
 
   render() {

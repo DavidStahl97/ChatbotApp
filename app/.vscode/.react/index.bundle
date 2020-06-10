@@ -1339,7 +1339,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   _reactNative.AppRegistry.registerComponent(_app.name, function () {
     return _App.default;
   });
-},0,[1,2,475,476],"index.js");
+},0,[1,2,475,477],"index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -104512,7 +104512,9 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
 
-  var _jsxFileName = "C:\\Users\\de18702\\Projekte\\RN-Workspace\\first-react-native\\MyProject\\App.js";
+  var _reactNativeConfig = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "react-native-config"));
+
+  var _jsxFileName = "C:\\Users\\de18702\\Projekte\\RN-Workspace\\ChatbotApp\\app\\App.js";
 
   function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -104541,6 +104543,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         this.setState({
           number: newNumber
         });
+        var key = _reactNativeConfig.default.API_KEY;
       }
     }, {
       key: "render",
@@ -104549,14 +104552,14 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: myStyles.myContainer,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 20,
+            lineNumber: 23,
             columnNumber: 7
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: myStyles.myText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 21,
+            lineNumber: 24,
             columnNumber: 9
           }
         }, 'Moin, drücke diesen Button'), _react.default.createElement(_reactNative.Button, {
@@ -104564,13 +104567,13 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           onPress: this.onPressButton.bind(this),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22,
+            lineNumber: 25,
             columnNumber: 9
           }
         }), _react.default.createElement(_reactNative.Text, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23,
+            lineNumber: 26,
             columnNumber: 9
           }
         }, this.state.number));
@@ -104592,13 +104595,27 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       fontSize: 50
     }
   });
-},475,[1,9,26,27,37,39,36,56,2],"App.js");
+},475,[1,9,26,27,37,39,36,56,2,476],"App.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[0], "react-native");
+
+  var _default = _reactNative.NativeModules.ReactNativeConfigModule || {};
+
+  exports.default = _default;
+},476,[2],"node_modules\\react-native-config\\index.js");
 __d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
   module.exports = {
   "name": "app",
   "displayName": "app"
 };
-},476,[],"app.json");
+},477,[],"app.json");
 __r(94);
 __r(0);
 //# sourceMappingURL=index.map
