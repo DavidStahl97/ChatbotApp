@@ -35,6 +35,7 @@ export default class MyApp extends Component {
     }));
 
     const apiKey = Config.API_KEY;
+    const url = Config.API_URL;
 
     const requestOptions = {
       method: 'POST',
@@ -47,10 +48,7 @@ export default class MyApp extends Component {
       }),
     };
 
-    fetch(
-      'https://qna-thm-service.azurewebsites.net/qnamaker/knowledgebases/bf3b2c41-215c-428b-9cff-1a11ea0a3789/generateAnswer',
-      requestOptions,
-    )
+    fetch(url, requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
