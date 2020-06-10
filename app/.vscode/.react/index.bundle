@@ -1339,7 +1339,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   _reactNative.AppRegistry.registerComponent(_app.name, function () {
     return _App.default;
   });
-},0,[1,2,475,484],"index.js");
+},0,[1,2,475,476],"index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -104598,7 +104598,7 @@ __d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
   "name": "app",
   "displayName": "app"
 };
-},484,[],"app.json");
+},476,[],"app.json");
 __r(94);
 __r(0);
 //# sourceMappingURL=index.map
