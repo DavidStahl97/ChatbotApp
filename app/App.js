@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {AsyncStorage} from 'react-native';
 import {GiftedChat} from 'react-native-gifted-chat';
 import Config from 'react-native-config';
 import uuid from 'react-native-uuid';
@@ -12,27 +13,28 @@ export default class MyApp extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      messages: [
-        {
-          _id: uuid.v1(),
-          text: 'Hello developer',
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'React Native',
-            avatar: 'https://placeimg.com/140/140/any',
-          },
-        },
-      ],
-    });
-  }
-
   onSend(messages = []) {
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages),
     }));
+
+
+    const importData = async () => {
+      try {
+        console.log('start storing data');
+
+        const keys = await AsyncStorage.getAllKeys();
+        const result = await AsyncStorage.multiGet(keys);
+
+        console.log('import');
+
+        return result.map(req => JSON.parse(req)).forEach(console.log);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    importData().then(data => console.log(data));
 
     const apiKey = Config.API_KEY;
     const url = Config.API_URL;
@@ -63,6 +65,18 @@ export default class MyApp extends Component {
             },
           }),
         }));
+
+        let _storeData = async () => {
+          try {
+            console.log('store item');
+            console.log(messages);
+            await AsyncStorage.setItem(new Date(), 'hallo');
+          } catch (error) {
+            // Error saving data
+          }
+        };
+
+        _storeData().then(d => console.log(d));
       });
   }
 
