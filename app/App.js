@@ -3,9 +3,8 @@ import {GiftedChat} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
 import {answerAsync} from './api/BotAPI';
 import {retrieveItem, storeItem} from './api/StorageAPI';
-import {Header, Button} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {View, StyleSheet, Text} from 'react-native';
+import {Appbar, Menu, Provider} from 'react-native-paper';
+import {View, StyleSheet} from 'react-native';
 
 export default class MyApp extends Component {
   messagesKey = 'messages';
@@ -15,6 +14,7 @@ export default class MyApp extends Component {
 
     this.state = {
       messages: [],
+      visible: false,
     };
   }
 
@@ -49,27 +49,39 @@ export default class MyApp extends Component {
       .then(() => storeItem(this.messagesKey, this.state.messages));
   }
 
+  _openMenu = () => this.setState({visible: true});
+
+  _closeMenu = () => this.setState({visible: false});
+
   render() {
     return (
-      <View style={appStyle.container}>
-        <Header
-          centerComponent={
-            <Text style={appStyle.headerTitle}>{'THM Assistent'}</Text>
-          }
-          rightComponent={
-            <Button icon={<Icon size={24} name="more-vert" color="#fff" />} />
-          }
-          statusBarProps={{translucent: true}}
-        />
+      <Provider>
+        <View style={appStyle.container}>
+          <Appbar.Header>
+            <Appbar.Content title="THM Assistent" />
+            <Menu
+              visible={this.state.visible}
+              onDismiss={this._closeMenu}
+              anchor={
+                <Appbar.Action
+                  icon="dots-vertical"
+                  onPress={this._openMenu}
+                  color="#fff"
+                />
+              }>
+              <Menu.Item onPress={() => {}} title="Löschen" />
+            </Menu>
+          </Appbar.Header>
 
-        <GiftedChat
-          messages={this.state.messages}
-          onSend={messages => this.onSend(messages)}
-          user={{
-            _id: 1,
-          }}
-        />
-      </View>
+          <GiftedChat
+            messages={this.state.messages}
+            onSend={messages => this.onSend(messages)}
+            user={{
+              _id: 1,
+            }}
+          />
+        </View>
+      </Provider>
     );
   }
 }
