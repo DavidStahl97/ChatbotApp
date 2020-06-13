@@ -14,7 +14,6 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-config": "^1.2.1",
-    "react-native-elements": "^2.0.2",
     "react-native-gifted-chat": "^0.16.1",
     "react-native-paper": "^3.10.1",
     "react-native-uuid": "^1.4.9",
