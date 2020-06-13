@@ -53,6 +53,11 @@ export default class MyApp extends Component {
 
   _closeMenu = () => this.setState({visible: false});
 
+  _deleteMessages = () => {
+    this.setState({messages: [], visible: false});
+    storeItem(this.messagesKey, []);
+  };
+
   render() {
     return (
       <Provider>
@@ -69,7 +74,7 @@ export default class MyApp extends Component {
                   color="#fff"
                 />
               }>
-              <Menu.Item onPress={() => {}} title="Löschen" />
+              <Menu.Item onPress={this._deleteMessages} title="Löschen" />
             </Menu>
           </Appbar.Header>
 
