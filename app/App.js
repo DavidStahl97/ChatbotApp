@@ -3,6 +3,9 @@ import {GiftedChat} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
 import {answerAsync} from './api/BotAPI';
 import {retrieveItem, storeItem} from './api/StorageAPI';
+import {Header, Button} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {View, StyleSheet} from 'react-native';
 
 export default class MyApp extends Component {
   messagesKey = 'messages';
@@ -48,13 +51,32 @@ export default class MyApp extends Component {
 
   render() {
     return (
-      <GiftedChat
-        messages={this.state.messages}
-        onSend={messages => this.onSend(messages)}
-        user={{
-          _id: 1,
-        }}
-      />
+      <View style={appStyle.container}>
+        <Header
+          centerComponent={{text: 'THM Assistent', style: {color: '#fff'}}}
+          rightComponent={
+            <Button icon={<Icon name="more-vert" color="#fff" />} />
+          }
+          containerStyle={appStyle.header}
+        />
+
+        <GiftedChat
+          messages={this.state.messages}
+          onSend={messages => this.onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+        />
+      </View>
     );
   }
 }
+
+const appStyle = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    paddingTop: 0,
+  },
+});
