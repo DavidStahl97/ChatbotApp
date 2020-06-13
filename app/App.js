@@ -5,7 +5,7 @@ import {answerAsync} from './api/BotAPI';
 import {retrieveItem, storeItem} from './api/StorageAPI';
 import {Header, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 
 export default class MyApp extends Component {
   messagesKey = 'messages';
@@ -53,11 +53,13 @@ export default class MyApp extends Component {
     return (
       <View style={appStyle.container}>
         <Header
-          centerComponent={{text: 'THM Assistent', style: {color: '#fff'}}}
-          rightComponent={
-            <Button icon={<Icon name="more-vert" color="#fff" />} />
+          centerComponent={
+            <Text style={appStyle.headerTitle}>{'THM Assistent'}</Text>
           }
-          containerStyle={appStyle.header}
+          rightComponent={
+            <Button icon={<Icon size={24} name="more-vert" color="#fff" />} />
+          }
+          statusBarProps={{translucent: true}}
         />
 
         <GiftedChat
@@ -77,6 +79,11 @@ const appStyle = StyleSheet.create({
     flex: 1,
   },
   header: {
-    paddingTop: 0,
+    justifyContent: 'space-between',
+  },
+  headerTitle: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
