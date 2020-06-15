@@ -77,7 +77,10 @@ export class ChatScreen extends Component {
                 />
               }>
               <Menu.Item onPress={this._deleteMessages} title="Löschen" />
-              <Menu.Item onPress={() => {}} title="Info" />
+              <Menu.Item
+                onPress={() => this.props.navigation.navigate('InfoScreen')}
+                title="Info"
+              />
             </Menu>
           </Appbar.Header>
 
