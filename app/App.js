@@ -19,11 +19,13 @@ export default class MyApp extends Component {
   }
 
   componentDidMount() {
-    retrieveItem(this.messagesKey).then(messages =>
-      this.setState(previousState => ({
-        messages: GiftedChat.append(previousState.messages, messages),
-      })),
-    );
+    retrieveItem(this.messagesKey).then(messages => {
+      if (messages != null) {
+        this.setState(previousState => ({
+          messages: GiftedChat.append(previousState.messages, messages),
+        }));
+      }
+    });
   }
 
   onSend(messages = []) {
