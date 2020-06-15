@@ -81,6 +81,7 @@ export class ChatScreen extends Component {
                 onPress={() => this.props.navigation.navigate('InfoScreen')}
                 title="Info"
               />
+              <Menu.Item title="Score anzeigen" />
             </Menu>
           </Appbar.Header>
 
