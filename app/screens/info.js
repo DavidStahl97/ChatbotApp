@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
 import {Appbar, Provider, DataTable} from 'react-native-paper';
+import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 
 const faqList = require('../faqs.json');

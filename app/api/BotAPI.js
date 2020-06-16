@@ -1,23 +1,23 @@
 import Config from 'react-native-config';
+import {Dialogflow_V2} from 'react-native-dialogflow';
 
-export async function answerAsync(question) {
-  const apiKey = Config.API_KEY;
-  const url = Config.API_URL;
+export function configureBotAPI() {
+  Dialogflow_V2.setConfiguration(
+    Config.CLIENT_EMAIL,
+    Config.SECRET,
+    Dialogflow_V2.LANG_GERMAN,
+    Config.PROJECT_ID,
+  );
+}
 
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `EndpointKey ${apiKey}`,
-    },
-    body: JSON.stringify({
-      question: question,
-    }),
-  };
-
-  const response = await fetch(url, requestOptions);
-  const data = await response.json();
-
-  const answer = data.answers[0].answer;
-  return answer;
+export async function answerAsync(question, result, error) {
+  Dialogflow_V2.requestQuery(
+    question,
+    r =>
+      result({
+        answer: r.queryResult.fulfillmentText,
+        score: r.queryResult.intentDetectionConfidence,
+      }),
+    error,
+  );
 }

@@ -1,9 +1,9 @@
+import {Appbar, Menu, Provider} from 'react-native-paper';
 import React, {Component} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
-import {answerAsync} from '../api/BotAPI';
+import {answerAsync, configureBotAPI} from '../api/BotAPI';
 import {retrieveItem, storeItem} from '../api/StorageAPI';
-import {Appbar, Menu, Provider} from 'react-native-paper';
 import {View, StyleSheet} from 'react-native';
 
 export class ChatScreen extends Component {
@@ -11,6 +11,8 @@ export class ChatScreen extends Component {
 
   constructor() {
     super();
+
+    configureBotAPI();
 
     this.state = {
       messages: [],
@@ -35,20 +37,20 @@ export class ChatScreen extends Component {
 
     const question = messages[0].text;
 
-    answerAsync(question)
-      .then(answer =>
-        this.setState(previousState => ({
-          messages: GiftedChat.append(previousState.messages, {
-            _id: uuid.v1(),
-            text: answer,
-            createdAt: new Date(),
-            user: {
-              _id: 2,
-            },
-          }),
-        })),
-      )
-      .then(() => storeItem(this.messagesKey, this.state.messages));
+    answerAsync(question, result => this.addAnswer(result), error => {});
+  }
+
+  addAnswer(result) {
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, {
+        _id: uuid.v1(),
+        text: result.answer,
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+        },
+      }),
+    }));
   }
 
   _openMenu = () => this.setState({visible: true});
