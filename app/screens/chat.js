@@ -52,6 +52,8 @@ export class ChatScreen extends Component {
         score: result.score,
       }),
     }));
+
+    storeItem(this.messagesKey, this.state.messages);
   }
 
   _openMenu = () => this.setState({visible: true});
