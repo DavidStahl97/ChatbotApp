@@ -1,4 +1,4 @@
-import {Appbar, Menu, Provider} from 'react-native-paper';
+import {Appbar, Menu, Provider, Text} from 'react-native-paper';
 import React, {Component} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
@@ -49,6 +49,7 @@ export class ChatScreen extends Component {
         user: {
           _id: 2,
         },
+        score: result.score,
       }),
     }));
   }
@@ -93,11 +94,25 @@ export class ChatScreen extends Component {
             user={{
               _id: 1,
             }}
+            renderCustomView={this.renderCustomView}
           />
         </View>
       </Provider>
     );
   }
+
+  renderCustomView = props => {
+    var message = props.currentMessage;
+    if (message.user._id === 1) {
+      return;
+    }
+
+    return (
+      <View style={appStyle.messageCustomView}>
+        <Text>Score: {message.score}</Text>
+      </View>
+    );
+  };
 }
 
 const appStyle = StyleSheet.create({
@@ -111,5 +126,9 @@ const appStyle = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  messageCustomView: {
+    minHeight: 20,
+    alignItems: 'center',
   },
 });
