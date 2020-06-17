@@ -22,5 +22,89 @@
     {
         "url": "https://www.thm.de/site/international/international-office/nachrichten/eigene-berichte/coronavirus-informationen-fuer-auslandsaufenthalte-und-internationale-studierende-an-der-thm.html",
         "title": "Coronavirus: Informationen für Auslandsaufenthalte und internationale Studierende an der THM "
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/allgemeine-infos/voraussetzungen.html",        
+        "title": "Voraussetzungen für ein Studium"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/allgemeine-infos/studiumplus-mein-karriere-plus.html",
+        "title": "StudiumPlus: Mein Karriere-Plus!"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/betriebswirtschaftslehre/bachelor-bw-mittelstandsmanagement.html#semester-7",
+        "title": "BW Mittelstandsmanagement"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/betriebswirtschaftslehre/bachelor-bw-logistikmanagement.html",
+        "title": "BW Logistikmanagement"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/betriebswirtschaftslehre/bachelor-bw-wirtschaftsinformatik.html",
+        "title": "BW Wirtschaftsinformatik"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/betriebswirtschaftslehre/bachelor-bw-krankenversicherungsmanagement.html",
+        "title": "BW Krankenversicherungsmanagement"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/betriebswirtschaftslehre/bachelor-bw-finanzdienstleistungen.html",
+        "title": "BW Finanzdienstleistungen"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/ingenieurwesen-maschinenbau/iw-mb-allgemeiner-maschinenbau.html",
+        "title": "IW/MB Allgemeiner Maschinenbau"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/ingenieurwesen-maschinenbau/iw-mb-formgebung.html",
+        "title": "IW/MB Formgebung"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/ingenieurwesen-maschinenbau/iw-mb-hygiene-design.html",
+        "title": "IW/MB Hygiene Design"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/ingenieurwesen-maschinenbau/iw-mb-kaelte-und-klimatechnik.html",
+        "title": "IW/MB Kälte- und Klimatechnik"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/ingenieurwesen-elektrotechnik/iw-et-allgemeine-elektrotechnik.html",
+        "title": "IW/ET Allgemeine Elektrotechnik"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/ingenieurwesen-elektrotechnik/iw-et-technische-informatik.html",
+        "title": "IW/ET Technische Informatik"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/wirtschaftsingenieurwesen/wi-maschinenbau.html",
+        "title": "WI Maschinenbau"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/wirtschaftsingenieurwesen/wi-elektrotechnik.html",
+        "title": "WI Elektrotechnik"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/wirtschaftsingenieurwesen/wi-vertrieb.html",
+        "title": "WI Vertrieb"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/bauingenieurwesen/bau-baumanagement-konstruktion-und-infrastruktur.html",
+        "title": "BAU Baumanagement, Konstruktion und Infrastruktur"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/bauingenieurwesen/bau-technische-gebaeudeausruestung.html",
+        "title": "BAU Technische Gebäudeausrüstung"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/softwaretechnologie.html",
+        "title": " Softwaretechnologie"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/organisationsmanagement-in-der-medizin/krankenhaus-und-praxenmanagement.html",
+        "title": "Krankenhaus- und Praxenmanagement"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/organisationsmanagement-in-der-medizin/medizintechnikmanagement.html",
+        "title": "Medizintechnikmanagement"
     }
 ]
