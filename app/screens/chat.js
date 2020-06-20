@@ -1,10 +1,16 @@
 import {Appbar, Menu, Provider, Text} from 'react-native-paper';
 import React, {Component} from 'react';
-import {GiftedChat} from 'react-native-gifted-chat';
+import {
+  GiftedChat,
+  MessageText,
+  Message,
+  Bubble,
+} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
 import {answerAsync, configureBotAPI} from '../api/BotAPI';
 import {retrieveItem, storeItem} from '../api/StorageAPI';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
+import {BotMessage} from './botMessage';
 
 export class ChatScreen extends Component {
   messagesKey = 'messages';
@@ -106,6 +112,7 @@ export class ChatScreen extends Component {
             }}
             renderCustomView={this.renderCustomView}
             renderAvatar={() => null}
+            renderMessageText={this.renderMessageText}
           />
         </View>
       </Provider>
@@ -124,6 +131,14 @@ export class ChatScreen extends Component {
       </View>
     );
   };
+
+  renderMessageText = props => {
+    if (props.currentMessage.user._id === 1) {
+      return <MessageText {...props} />;
+    } else {
+      return <BotMessage text={props.currentMessage.text} />;
+    }
+  };
 }
 
 const appStyle = StyleSheet.create({
@@ -141,5 +156,8 @@ const appStyle = StyleSheet.create({
   messageCustomView: {
     minHeight: 20,
     marginLeft: 20,
+  },
+  message: {
+    marginBottom: 100,
   },
 });
