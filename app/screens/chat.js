@@ -77,7 +77,7 @@ export class ChatScreen extends Component {
       <Provider>
         <View style={appStyle.container}>
           <Appbar.Header>
-            <Appbar.Content title="THM Assistent" />
+            <Appbar.Content title="THM NAssistent" />
             <Menu
               visible={this.state.visible}
               onDismiss={this._closeMenu}
