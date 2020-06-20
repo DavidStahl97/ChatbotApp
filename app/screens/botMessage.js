@@ -66,7 +66,7 @@ export class BotMessage extends Component {
     return (
       <Image
         source={{uri: url}}
-        width={Dimensions.get('window').width}
+        width={Dimensions.get('window').width - 40}
         onPress={() => Linking.openURL(url)}
       />
     );
