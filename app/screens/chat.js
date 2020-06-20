@@ -1,15 +1,10 @@
 import {Appbar, Menu, Provider, Text} from 'react-native-paper';
 import React, {Component} from 'react';
-import {
-  GiftedChat,
-  MessageText,
-  Message,
-  Bubble,
-} from 'react-native-gifted-chat';
+import {GiftedChat, MessageText} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
 import {answerAsync, configureBotAPI} from '../api/BotAPI';
 import {retrieveItem, storeItem} from '../api/StorageAPI';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {BotMessage} from './botMessage';
 
 export class ChatScreen extends Component {
@@ -75,6 +70,11 @@ export class ChatScreen extends Component {
     storeItem(this.messagesKey, []);
   };
 
+  _navigateToInfo = () => {
+    this.setState({visible: false});
+    this.props.navigation.navigate('InfoScreen');
+  };
+
   changeViewScore() {
     this.viewScore = !this.viewScore;
     this.setState({visible: false});
@@ -97,10 +97,7 @@ export class ChatScreen extends Component {
                 />
               }>
               <Menu.Item onPress={this._deleteMessages} title="Löschen" />
-              <Menu.Item
-                onPress={() => this.props.navigation.navigate('InfoScreen')}
-                title="Info"
-              />
+              <Menu.Item onPress={this._navigateToInfo} title="Info" />
             </Menu>
           </Appbar.Header>
 
