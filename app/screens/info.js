@@ -1,15 +1,27 @@
-import {Appbar, Provider, DataTable} from 'react-native-paper';
+import {
+  Appbar,
+  Provider,
+  DataTable,
+  Card,
+  Paragraph,
+  Title,
+  Button,
+} from 'react-native-paper';
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView, Linking, StyleSheet} from 'react-native';
 
 const faqList = require('../faqs.json');
 
 export class InfoScreen extends Component {
+  dialogFlowUrl = 'https://dialogflow.com/';
+  qnaMakerUrl = 'https://www.qnamaker.ai/';
+
   renderDataTableRows() {
     const rows = faqList.map(faq => (
       <DataTable.Row>
-        <DataTable.Cell>{faq.title}</DataTable.Cell>
-        <DataTable.Cell>{faq.url}</DataTable.Cell>
+        <DataTable.Cell onPress={() => Linking.openURL(faq.url)}>
+          {faq.title}
+        </DataTable.Cell>
       </DataTable.Row>
     ));
 
@@ -28,17 +40,71 @@ export class InfoScreen extends Component {
             />
             <Appbar.Content title="Info" />
           </Appbar.Header>
-          <Text>Unterstützte THM-FAQs</Text>
-          <DataTable>
-            <DataTable.Header>
-              <DataTable.Title>Webseiten</DataTable.Title>
-              <DataTable.Title>URL</DataTable.Title>
-            </DataTable.Header>
+          <ScrollView>
+            <Card style={infoStyle.card}>
+              <Card.Cover
+                source={require('../img/dialogflow.png')}
+                style={infoStyle.dialogflowImage}
+                onPress={() => Linking.openURL(this.dialogFlowUrl)}
+              />
+              <Card.Title
+                title="Dialogflow von Google"
+                onPress={() => Linking.openURL(this.dialogFlowUrl)}
+              />
+              <Card.Content>
+                <Text>
+                  Der Chatbot, der THM Assistent, wurde mit Google Dialogflow
+                  erstellt und wurde mit Fragen und Antworten nach maschinellen
+                  Lernen trainiert. Dadurch erkennt der Bot auch leicht
+                  unformulierte Fragen, die er vorher noch nicht kannte.
+                </Text>
+              </Card.Content>
+            </Card>
 
-            {this.renderDataTableRows()}
-          </DataTable>
+            <Card style={infoStyle.card}>
+              <Card.Title
+                title="QnA Maker von Microsoft"
+                onPress={() => Linking.openURL(this.qnaMakerUrl)}
+              />
+              <Card.Content>
+                <Text>
+                  QnA Maker von Microsoft bietet die gleiche Funktionalität wie
+                  bei Dialogflow. QnA Maker wurde jedoch nur für das Durchsuchen
+                  von Fragen und Antworten einer FAQ-Webseite genutzt. Diese
+                  Fragen und Antworten wurden in Dialogflow importiert.
+                </Text>
+              </Card.Content>
+            </Card>
+
+            <Card style={infoStyle.card}>
+              <Card.Title title="THM Assistent" />
+              <Card.Content>
+                <Text>
+                  Neben Smalltalk hat der THM Assistent zusätzlich Fragen und
+                  Antworten aus den folgenden Webseiten der THM bekommen.
+                </Text>
+              </Card.Content>
+              <DataTable>
+                <DataTable.Header>
+                  <DataTable.Title>Webseiten</DataTable.Title>
+                </DataTable.Header>
+                {this.renderDataTableRows()}
+              </DataTable>
+            </Card>
+          </ScrollView>
         </View>
       </Provider>
     );
   }
 }
+
+const infoStyle = StyleSheet.create({
+  card: {
+    margin: 10,
+  },
+  dialogflowImage: {
+    aspectRatio: 2.9,
+    height: undefined,
+    width: '100%',
+  },
+});

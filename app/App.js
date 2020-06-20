@@ -12,9 +12,9 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="ChatScreen" component={ChatScreen} />
           <Stack.Screen name="InfoScreen" component={InfoScreen} />
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
