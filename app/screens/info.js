@@ -6,15 +6,12 @@ const faqList = require('../faqs.json');
 
 export class InfoScreen extends Component {
   renderDataTableRows() {
-    const rows = [];
-    for (const faq in faqList.values()) {
-      rows.push(
-        <DataTable.Row>
-          <DataTable.Cell>{faq.title}</DataTable.Cell>
-          <DataTable.Cell>{faq.url}</DataTable.Cell>
-        </DataTable.Row>,
-      );
-    }
+    const rows = faqList.map(faq => (
+      <DataTable.Row>
+        <DataTable.Cell>{faq.title}</DataTable.Cell>
+        <DataTable.Cell>{faq.url}</DataTable.Cell>
+      </DataTable.Row>
+    ));
 
     return rows;
   }
