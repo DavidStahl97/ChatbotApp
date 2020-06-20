@@ -16,8 +16,20 @@
         "title": "FAQ FÜR STUDIERENDE (und zur Info an Lehrende)"
     },
     {
+        "url": "https://www.thm.de/site/studium/sie-wollen-studieren/angebote-fuer-gefluechtete.html",
+        "title": "Angebote für Geflüchtete"
+    },
+    {
+        "url": "https://www.thm.de/site/hochschule/service/schulportal/schuelerinnen-und-schueler.html",
+        "title": "Schülerinnen und Schüler"
+    },
+    {
         "url": "https://www.thm.de/its/helpdesk/faq.html",
         "title": "Häufig gestellte Fragen (FAQ)"
+    },
+    {
+        "url": "https://www.thm.de/site/studium/sie-wollen-studieren/onlineberatung.html",
+        "title": "Onlineberatung"
     },
     {
         "url": "https://www.thm.de/site/international/international-office/nachrichten/eigene-berichte/coronavirus-informationen-fuer-auslandsaufenthalte-und-internationale-studierende-an-der-thm.html",
@@ -106,5 +118,25 @@
     {
         "url": "https://www.studiumplus.de/sp/duales-studium/studienangebote/organisationsmanagement-in-der-medizin/medizintechnikmanagement.html",
         "title": "Medizintechnikmanagement"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/duales-studium/allgemeine-infos/zeitlicher-ablauf-der-master-studiengaenge.html",
+        "title": "Zeitlicher Ablauf der Master-Studiengänge"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/plus/ueberstudiumplus/ueber-studiumplus.html",
+        "title": "Über StudiumPlus"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/internationalisierung/allgemeines/auslandssemester.html#finanzierung",
+        "title": "Auslandssemester"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/internationalisierung/allgemeines/auslandspraktikum.html",
+        "title": "Auslandspraktikum"
+    },
+    {
+        "url": "https://www.studiumplus.de/sp/internationalisierung/allgemeines/summer-school.html",
+        "title": "Summer School"
     }
 ]
