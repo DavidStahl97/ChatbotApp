@@ -105,6 +105,7 @@ export class ChatScreen extends Component {
               _id: 1,
             }}
             renderCustomView={this.renderCustomView}
+            renderAvatar={() => null}
           />
         </View>
       </Provider>
