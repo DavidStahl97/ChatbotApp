@@ -3,12 +3,20 @@ import React, {Component} from 'react';
 import {StyleSheet, Linking, Dimensions} from 'react-native';
 import Image from 'react-native-scalable-image';
 
-// used for reading QnA syntax and generates the ui components
+// used for reading QnA syntax language and generates the ui components
 export class BotMessage extends Component {
   render() {
     const splittedLines = this.props.text.split('\\n');
 
-    return splittedLines.map(line => this.renderLine(line));
+    // cannot add an image in text component
+    const imageRegex = /!\[[^\]]+\]\([^)]+\)/;
+    return splittedLines.map(line =>
+      imageRegex.test(line) ? (
+        this.renderLine(line)
+      ) : (
+        <Text>{this.renderLine(line)}</Text>
+      ),
+    );
   }
 
   renderLine(line) {
