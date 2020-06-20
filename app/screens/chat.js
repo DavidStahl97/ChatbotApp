@@ -8,7 +8,6 @@ import {View, StyleSheet} from 'react-native';
 
 export class ChatScreen extends Component {
   messagesKey = 'messages';
-  viewScore = false;
 
   constructor() {
     super();
@@ -38,7 +37,11 @@ export class ChatScreen extends Component {
 
     const question = messages[0].text;
 
-    answerAsync(question, result => this.addAnswer(result), error => {});
+    answerAsync(
+      question,
+      result => this.addAnswer(result),
+      error => console.log(error),
+    );
   }
 
   addAnswer(result) {
@@ -51,7 +54,6 @@ export class ChatScreen extends Component {
           _id: 2,
         },
         score: result.score,
-        viewScore: this.viewScore,
       }),
     }));
 
@@ -93,10 +95,6 @@ export class ChatScreen extends Component {
                 onPress={() => this.props.navigation.navigate('InfoScreen')}
                 title="Info"
               />
-              <Menu.Item
-                title="Score anzeigen"
-                onPress={() => this.changeViewScore()}
-              />
             </Menu>
           </Appbar.Header>
 
@@ -115,13 +113,13 @@ export class ChatScreen extends Component {
 
   renderCustomView = props => {
     var message = props.currentMessage;
-    if (message.user._id === 1 || message.viewScore === false) {
+    if (message.user._id === 1) {
       return;
     }
 
     return (
       <View style={appStyle.messageCustomView}>
-        <Text>Score: {message.score}</Text>
+        <Text>Score: {message.score.toFixed(2)}</Text>
       </View>
     );
   };
@@ -141,6 +139,6 @@ const appStyle = StyleSheet.create({
   },
   messageCustomView: {
     minHeight: 20,
-    alignItems: 'center',
+    marginLeft: 20,
   },
 });
