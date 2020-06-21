@@ -11,10 +11,10 @@ export default class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="SplashScreen">
           <Stack.Screen name="ChatScreen" component={ChatScreen} />
-          <Stack.Screen name="InfoScreen" component={InfoScreen} />
           <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="InfoScreen" component={InfoScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
