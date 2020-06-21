@@ -1,6 +1,6 @@
 import {Appbar, Menu, Provider, Text} from 'react-native-paper';
 import React, {Component} from 'react';
-import {GiftedChat, MessageText} from 'react-native-gifted-chat';
+import {GiftedChat, MessageText, Bubble} from 'react-native-gifted-chat';
 import uuid from 'react-native-uuid';
 import {answerAsync, configureBotAPI} from '../api/BotAPI';
 import {retrieveItem, storeItem} from '../api/StorageAPI';
@@ -110,6 +110,7 @@ export class ChatScreen extends Component {
             renderCustomView={this.renderCustomView}
             renderAvatar={() => null}
             renderMessageText={this.renderMessageText}
+            renderBubble={this.renderBubble}
           />
         </View>
       </Provider>
@@ -124,18 +125,32 @@ export class ChatScreen extends Component {
 
     return (
       <View style={appStyle.messageCustomView}>
-        <Text>Score: {message.score.toFixed(2)}</Text>
+        <Text style={{color: 'blue', marginBottom: 5}}>Score: {message.score.toFixed(2)}</Text>
       </View>
     );
   };
 
   renderMessageText = props => {
     if (props.currentMessage.user._id === 1) {
-      return <MessageText {...props} />;
+      return <MessageText {...props}/>;
     } else {
-      return <BotMessage text={props.currentMessage.text} />;
+      return <BotMessage text={props.currentMessage.text}/>;
     }
   };
+
+  renderBubble = (props) => (
+    <Bubble
+      {...props}
+      wrapperStyle={{
+        left: { backgroundColor: 'white', borderColor:'white', borderWidth: 5},
+        right: {},
+      }}
+      containerStyle={{
+        left: { marginBottom: 20, maxWidth: '95%' },
+        right: { marginBottom: 20 },
+      }}
+    />
+  );
 }
 
 const appStyle = StyleSheet.create({

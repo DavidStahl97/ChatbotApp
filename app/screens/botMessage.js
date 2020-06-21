@@ -14,7 +14,7 @@ export class BotMessage extends Component {
       imageRegex.test(line) ? (
         this.renderLine(line)
       ) : (
-        <Text>{this.renderLine(line)}</Text>
+        <Text style={{margin: 10}}>{this.renderLine(line)}</Text>
       ),
     );
   }
@@ -74,7 +74,7 @@ export class BotMessage extends Component {
     return (
       <Image
         source={{uri: url}}
-        width={Dimensions.get('window').width - 40}
+        width={Dimensions.get('window').width - 100}
         onPress={() => Linking.openURL(url)}
       />
     );
