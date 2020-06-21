@@ -13,6 +13,8 @@ export class ChatScreen extends Component {
   constructor() {
     super();
 
+    
+
     configureBotAPI();
 
     this.state = {

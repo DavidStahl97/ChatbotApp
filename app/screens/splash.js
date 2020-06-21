@@ -22,7 +22,7 @@ export class SplashScreen extends Component {
         super();
 
         setTimeout(
-            () => { this.props.navigation.navigate('ChatScreen') },
+            () => { this.props.navigation.replace('ChatScreen') },
             500
         )
         
